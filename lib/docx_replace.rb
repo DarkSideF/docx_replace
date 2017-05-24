@@ -26,7 +26,7 @@ module DocxReplace
     end
 
     def raw_replace(pattern, replacement, multiple_occurrences = false)
-      replacement = replacement.gsub("\n", '</w:t><w:br/><w:t>')
+      replacement = replacement.gsub("\n", '</w:t><w:cr/><w:tab/><w:t>')
                                .gsub("\t", '</w:t><w:tab/><w:t>')
       @document_contents.each do |_path, document_content|
         if multiple_occurrences
